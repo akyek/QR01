@@ -15,54 +15,24 @@ var imghtml='<div id="qrfile"><canvas id="out-canvas" width="320" height="240"><
 	'<br>or select a file'+
 	'<input type="file" onchange="handleFiles(this.files)"/>'+
 	'</div>'+
-'</div>';
+	'</div>';
 
 var vidhtml = '<video id="v" autoplay></video>';
-/*
-function dragenter(e) {
-  e.stopPropagation();
-  e.preventDefault();
-}
 
-function dragover(e) {
-  e.stopPropagation();
-  e.preventDefault();
-}
-function drop(e) {
-  e.stopPropagation();
-  e.preventDefault();
+var x = document.getElementById("demo");
 
-  var dt = e.dataTransfer;
-  var files = dt.files;
-  if(files.length>0)
-  {
-	handleFiles(files);
-  }
-  else
-  if(dt.getData('URL'))
-  {
-	qrcode.decode(dt.getData('URL'));
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
-function handleFiles(f)
-{
-	var o=[];
-	
-	for(var i =0;i<f.length;i++)
-	{
-        var reader = new FileReader();
-        reader.onload = (function(theFile) {
-        return function(e) {
-            gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude + "<br>Datetime: " + Date(); }
 
-			qrcode.decode(e.target.result);
-        };
-        })(f[i]);
-        reader.readAsDataURL(f[i]);	
-    }
-}
-*/
 function initCanvas(w,h)
 {
     gCanvas = document.getElementById("qr-canvas");
@@ -221,20 +191,3 @@ function setwebcam2(options)
     stype=1;
     setTimeout(captureToCanvas, 500);
 }
-/*
-function setimg()
-{
-	document.getElementById("result").innerHTML="";
-    if(stype==2)
-        return;
-    document.getElementById("outdiv").innerHTML = imghtml;
-    //document.getElementById("qrimg").src="qrimg.png";
-    //document.getElementById("webcamimg").src="webcam2.png";
-    document.getElementById("qrimg").style.opacity=1.0;
-    document.getElementById("webcamimg").style.opacity=0.2;
-    var qrfile = document.getElementById("qrfile");
-    qrfile.addEventListener("dragenter", dragenter, false);  
-    qrfile.addEventListener("dragover", dragover, false);  
-    qrfile.addEventListener("drop", drop, false);
-    stype=2;
-} */
