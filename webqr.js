@@ -18,7 +18,7 @@ var imghtml='<div id="qrfile"><canvas id="out-canvas" width="320" height="240"><
 '</div>';
 
 var vidhtml = '<video id="v" autoplay></video>';
-
+/*
 function dragenter(e) {
   e.stopPropagation();
   e.preventDefault();
@@ -62,7 +62,7 @@ function handleFiles(f)
         reader.readAsDataURL(f[i]);	
     }
 }
-
+*/
 function initCanvas(w,h)
 {
     gCanvas = document.getElementById("qr-canvas");
