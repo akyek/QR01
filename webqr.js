@@ -19,20 +19,6 @@ var imghtml='<div id="qrfile"><canvas id="out-canvas" width="320" height="240"><
 
 var vidhtml = '<video id="v" autoplay></video>';
 
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude + "<br>Datetime: " + Date(); }
-
 function initCanvas(w,h)
 {
     gCanvas = document.getElementById("qr-canvas");
