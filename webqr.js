@@ -221,7 +221,7 @@ function setwebcam2(options)
     stype=1;
     setTimeout(captureToCanvas, 500);
 }
-
+/*
 function setimg()
 {
 	document.getElementById("result").innerHTML="";
@@ -237,4 +237,4 @@ function setimg()
     qrfile.addEventListener("dragover", dragover, false);  
     qrfile.addEventListener("drop", drop, false);
     stype=2;
-}
+} */
